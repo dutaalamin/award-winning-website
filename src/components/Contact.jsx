@@ -3,7 +3,7 @@ import Button from "./Button";
 
 const Contact = () => {
   return (
-    <div id="contact" className="w-screen">
+    <div id="community" className="w-screen">
       <div
         className="relative min-h-dvh w-screen text-blue-50"
         style={{
