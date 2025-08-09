@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { useWindowScroll } from "react-use";
 import { useEffect, useRef, useState } from "react";
 import { TiLocationArrow } from "react-icons/ti";
+import { FiMenu, FiX } from "react-icons/fi";
 
 import Button from "./Button";
 
@@ -18,6 +19,7 @@ const NavBar = () => {
   // State for toggling audio and visual indicator
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [isIndicatorActive, setIsIndicatorActive] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Refs for audio and navigation container
   const audioElementRef = useRef(null);
@@ -94,9 +96,19 @@ const NavBar = () => {
               ))}
             </div>
 
+            {/* Mobile menu toggle */}
+            <button
+              className="md:hidden ml-4 p-2 rounded-md border border-white/20 text-blue-50"
+              aria-label="Toggle menu"
+              aria-expanded={isMenuOpen}
+              onClick={() => setIsMenuOpen((p) => !p)}
+            >
+              {isMenuOpen ? <FiX size={20} /> : <FiMenu size={20} />}
+            </button>
+
             <button
               onClick={toggleAudioIndicator}
-              className="ml-10 flex items-center space-x-0.5"
+              className="ml-10 hidden md:flex items-center space-x-0.5"
             >
               <audio
                 ref={audioElementRef}
@@ -119,6 +131,27 @@ const NavBar = () => {
           </div>
         </nav>
       </header>
+
+      {/* Mobile overlay menu */}
+      <div
+        className={clsx(
+          "fixed inset-0 z-40 bg-black/80 backdrop-blur-sm md:hidden transition-opacity",
+          isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        )}
+      >
+        <div className="mt-24 flex flex-col items-center gap-6">
+          {navItems.map((item, index) => (
+            <a
+              key={index}
+              href={item.href}
+              onClick={() => setIsMenuOpen(false)}
+              className="text-blue-50 text-2xl uppercase font-general"
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
