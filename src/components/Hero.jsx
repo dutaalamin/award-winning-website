@@ -156,7 +156,7 @@ const Hero = () => {
             <p className="mt-2 font-circular-web font-extrabold text-lg md:text-2xl lg:text-3xl uppercase tracking-wider text-blue-100">
               The Super Hero Team-Based PvP Shooter
             </p>
-            <p className="mb-8 mt-2 max-w-none font-robert-medium font-extrabold text-yellow-300 uppercase tracking-wider text-2xl md:text-4xl lg:text-5xl">
+            <p className="mb-8 mt-2 max-w-none font-robert-medium font-extrabold text-yellow-400 uppercase tracking-wider text-2xl md:text-4xl lg:text-5xl">
               All Heroes Are Free To Play!
             </p>
 
@@ -164,8 +164,8 @@ const Hero = () => {
               <Button
                 id="watch-trailer"
                 title="Play Now"
-                containerClass="bg-yellow-300 flex-center gap-2 px-10 md:px-12 py-4 md:py-5 w-[18rem] md:w-[22rem] mt-8 md:mt-10"
-                textClass="text-base md:text-2xl"
+                containerClass="bg-yellow-400 rounded-none flex-center gap-2 px-10 md:px-12 py-4 md:py-5 w-[18rem] md:w-[22rem] mt-8 md:mt-10"
+                textClass="text-base md:text-3xl font-bold"
               />
             </a>
 
